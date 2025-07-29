@@ -55,7 +55,7 @@ const GlobeMap = () => {
           },
           'openmaptiles': {
             type: 'vector',
-            url: 'https://api.maptiler.com/tiles/v3/tiles.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL',
+            url: `https://api.maptiler.com/tiles/v3/tiles.json?key=${import.meta.env.VITE_MAPTILER_API_KEY}`,
             attribution: '© MapTiler © OpenStreetMap contributors'
           }
         },
