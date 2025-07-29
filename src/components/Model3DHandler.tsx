@@ -86,7 +86,6 @@ const createModelLayer = (modelFile: string, coordinates: [number, number], isMo
         
         // Initialize animation for this model
         modelAnimator.initializeModel(modelName, this.model);
-        console.log(`Loaded ${modelName} at [${coordinates[0]}, ${coordinates[1]}]`);
       }, undefined, (error) => {
         console.error(`Failed to load ${modelFile}:`, error);
       });
@@ -135,12 +134,9 @@ export const initializeModelLayers = async (map: maplibregl.Map, isMobile: boole
       const coordinates = await getCoordinates(modelName);
       
       if (coordinates) {
-        console.log(`Creating layer for ${glbFile} with coordinates:`, coordinates);
         const modelLayer = createModelLayer(glbFile, coordinates, isMobile);
         map.addLayer(modelLayer);
         locations.push({ name: modelName, coordinates });
-      } else {
-        console.log(`No coordinates found for ${modelName}`);
       }
     }
     
