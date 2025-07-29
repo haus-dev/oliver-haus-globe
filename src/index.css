@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Haus Eurostile Bold';
+  src: url('/haus.font/haus.eurostile.bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -11,6 +18,11 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+strong {
+  font-family: 'Haus Eurostile Bold', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: bold;
 }
 
 a {

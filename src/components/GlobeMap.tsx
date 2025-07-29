@@ -8,7 +8,8 @@ const GlobeMap = () => {
   const map = useRef<maplibregl.Map | null>(null);
   const [modelLocations, setModelLocations] = useState<Array<{name: string, coordinates: [number, number]}>>([]);
   const tourIndex = useRef(-1);
-  const [isMobile, setIsMobile] = useState(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent));
+  const [, setIsMobile] = useState(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent));
+  const [hasInteracted, setHasInteracted] = useState(false);
   
   
   const COLORS = {
@@ -29,7 +30,7 @@ const GlobeMap = () => {
       maxPitch: isMobileDevice ? 45 : 60,
       touchZoomRotate: true,
       touchPitch: true,
-      doubleClickZoom: false, // Disable default double-click zoom to use custom handler
+      doubleClickZoom: false, // Disable default double-click zoom to use custom handlers for both platforms
       trackResize: true,
       refreshExpiredTiles: false,
       fadeDuration: 0,
@@ -58,23 +59,7 @@ const GlobeMap = () => {
             attribution: '© MapTiler © OpenStreetMap contributors'
           }
         },
-        layers: isMobileDevice ? [
-          {
-            id: 'background',
-            type: 'background',
-            paint: {
-              'background-color': '#000000'
-            }
-          },
-          {
-            id: 'satellite-layer',
-            type: 'raster',
-            source: 'satellite',
-            paint: {
-              'raster-opacity': 1
-            }
-          }
-        ] : [
+        layers: [
           {
             id: 'background',
             type: 'background',
@@ -111,22 +96,15 @@ const GlobeMap = () => {
     map.current.on('style.load', () => {
       if (!map.current) return;
       
-      // Check WebGL support - skip warning if map is working
-      try {
-        const canvas = map.current.getCanvas();
-        const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-        // Don't warn if we're already rendering successfully
-      } catch (e) {
-        console.warn('WebGL check failed - continuing anyway');
-      }
+      // Skip WebGL check - if we got this far, it's working
 
       // Set globe projection
       map.current.setProjection({
         type: 'globe'
       });
 
-      // Add 3D buildings layer only on desktop (not mobile with satellite)
-      if (!isMobileDevice) {
+      // Add 3D buildings layer for both desktop and mobile (testing mobile support)
+      // if (!isMobileDevice) {
         // Try to add buildings layer after source loads - only once
         let buildingsLayerAdded = false;
         map.current.on('sourcedata', (e) => {
@@ -174,7 +152,7 @@ const GlobeMap = () => {
             }
           }
         });
-      }
+      // }
 
 
 
@@ -218,17 +196,35 @@ const GlobeMap = () => {
         const locations = await initializeModelLayers(map.current, isMobileDevice);
         setModelLocations(locations);
         
-        // Add double-click handler AFTER models are loaded
+        // Add double-click handlers for both mobile and desktop
         map.current.on('dblclick', (e) => {
-          if (!map.current || locations.length === 0) return;
-
+          console.log('Double-click detected!', { isMobileDevice, modelLocationsLength: modelLocations.length, locationsLength: locations.length });
+          
+          // Mark as interacted on first double-click
+          if (!hasInteracted) {
+            setHasInteracted(true);
+          }
+          
+          if (!map.current) {
+            console.log('No map current');
+            return;
+          }
+          
+          if (locations.length === 0) {
+            console.log('No locations available');
+            return;
+          }
+          
           if (isMobileDevice) {
             // Mobile: Navigate to next model on double-tap
             e.preventDefault(); // Prevent default zoom behavior
+            console.log('Mobile double-tap: navigating to next model');
             
             // Navigate to next model in sequence
             const nextIndex = (tourIndex.current + 1) % locations.length;
             const targetModel = locations[nextIndex];
+            
+            console.log('Mobile target model:', targetModel);
             
             // Calculate camera position - offset 35m north of the model
             const [lng, lat] = targetModel.coordinates;
@@ -247,12 +243,14 @@ const GlobeMap = () => {
             
             tourIndex.current = nextIndex;
           } else {
-            // Desktop: Navigate to next model with different settings
-            e.preventDefault(); // Prevent default zoom behavior
+            // Desktop: Navigate to models
+            console.log('Desktop double-click: navigating to next model');
             
             // Navigate to next model in sequence
             const nextIndex = (tourIndex.current + 1) % locations.length;
             const targetModel = locations[nextIndex];
+            
+            console.log('Desktop target model:', targetModel);
             
             // Calculate camera position - offset 70m north of the model for desktop
             const [lng, lat] = targetModel.coordinates;
@@ -261,7 +259,7 @@ const GlobeMap = () => {
             const cameraLng = lng;
             const cameraLat = lat + metersToLatitude;
             
-            // Use jumpTo for desktop navigation with different settings
+            // Use jumpTo for desktop navigation
             map.current.jumpTo({
               center: [cameraLng, cameraLat],
               zoom: 19,
@@ -294,13 +292,13 @@ const GlobeMap = () => {
         }} 
       />
       <div className="ui-overlay">
-        <div className={`glass-container top-bar ${isMobile ? 'mobile' : ''}`}>
+        <div className={`glass-container top-bar ${!hasInteracted ? 'gold-text' : ''}`}>
           <a href="mailto:oliver.haus@icloud.com" className="email-button">
-            Click this to send email for more info
+            Click this to <strong>send email</strong> for more info
           </a>
         </div>
-        <div className={`glass-container bottom-instruction ${isMobile ? 'mobile' : ''}`}>
-          {isMobile ? 'Double tap on globe to see more' : 'Double click on globe to see more'}
+        <div className={`glass-container bottom-instruction ${!hasInteracted ? 'gold-text' : ''}`}>
+          <strong>Double click</strong> on globe <strong>to see more</strong>
         </div>
       </div>
     </div>

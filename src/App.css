@@ -104,3 +104,27 @@ body {
   padding: 8px 16px; /* Smaller padding */
   min-width: auto; /* Auto width */
 }
+
+/* Gold text styling for before interaction */
+.gold-text {
+  color: #FFD700 !important; /* Gold yellow */
+}
+
+.gold-text .email-button {
+  color: #FFD700 !important; /* Gold yellow for email button too */
+}
+
+/* Mobile specific media query to prevent line wrapping */
+@media (max-width: 768px) {
+  .top-bar {
+    white-space: nowrap;
+    font-size: 14px;
+    max-width: 90vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .email-button {
+    font-size: 14px;
+  }
+}
