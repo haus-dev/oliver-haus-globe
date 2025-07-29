@@ -1,0 +1,19 @@
+{
+"title": "glass.leather.dress",
+"creative": {
+"maker": "Oliver Haus",
+"wallet": "0x6744C77955F889046BDD1f1A6e9dDc63C50b3532"
+},
+"description": "This dress is the third in a series of intricate garments. Conceived as a purely technical undertaking, the piece features a corset constructed from glass fibre and leather, from which wool drapes. The creation required a precise blend of composite work, pattern cutting, and woodwork, with each element assembled by hand.",
+"ai_tags": "technical-exploration, craftsmanship, material-innovation, precision, independent",
+"collaborators": "none",
+"location": {
+"name": "London Metropolitan University",
+"geo": {
+"lat": 51.516208,
+"lon": -0.074368
+}
+},
+"materials": ["glass fibre", "leather", "wood", "wool"],
+"methods": ["composite work", "draping on mannequin", "pattern cutting", "woodwork", "hand stitching", "assemby"]
+}

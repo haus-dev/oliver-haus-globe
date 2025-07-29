@@ -1,0 +1,30 @@
+{
+  "title": "xd.bag",
+  "creative": {
+    "maker": "Oliver Haus",
+    "wallet": "0x6744C77955F889046BDD1f1A6e9dDc63C50b3532"
+  },
+  "description": "I created the 'xd.bag' to explore different shapes and materials. Made at the Royal College of Art, Darwin Building, the bag combines leather, perspex, Japanese paper, 3D prints, and canvas. I used a mix of digital and manual techniques, including 3D modelling, laser cutting, Zund cutting, and hand assembly. This project was a straightforward experiment in material and form.",
+  "ai_tags": "curious, experimental, practical, process-driven, direct",
+  "collaborators": "none",
+  "location": {
+    "name": "Royal College of Art, Darwin Building",
+    "geo": {
+      "lat": 51.501322,
+      "lon": -0.178798
+    }
+  },
+  "materials": [
+    "leather",
+    "perspex",
+    "Japanese paper",
+    "3d print",
+    "canvas"
+  ],
+  "methods": [
+    "3d modelling",
+    "laser cutting",
+    "zund cutting",
+    "hand assembly"
+  ]
+}

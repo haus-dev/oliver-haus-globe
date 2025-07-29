@@ -1,0 +1,106 @@
+@font-face {
+  font-family: 'Haus Eurostile';
+  src: url('/haus.font/haus.eurostile.regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ui-overlay {
+  position: fixed; /* Changed to fixed */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+}
+
+.glass-container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 12px 24px;
+  font-family: 'Haus Eurostile', sans-serif;
+  color: #1a237e; /* Deep navy */
+}
+
+/* Mobile specific styling */
+.glass-container.mobile {
+  color: #ffeb3b !important; /* Bright yellow for mobile */
+  background: rgba(0, 0, 0, 0.7) !important; /* Darker background for better contrast */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  border: 2px solid #ffeb3b !important; /* Yellow border for visibility */
+}
+
+.glass-container.mobile .email-button {
+  color: #ffeb3b !important; /* Bright yellow for mobile */
+}
+
+.top-bar {
+  position: fixed; /* Changed to fixed */
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: auto;
+  border-radius: 12px;
+  z-index: 1000;
+}
+
+.email-button {
+  background: none;
+  border: none;
+  color: #1a237e;
+  font-family: 'Haus Eurostile', sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.3s;
+  padding: 0;
+}
+
+.email-button:hover {
+  opacity: 0.8;
+}
+
+.bottom-instruction {
+  position: fixed; /* Changed from absolute to fixed */
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 12px;
+  font-size: 14px;
+  text-align: center;
+  white-space: nowrap;
+  z-index: 1000; /* Increased z-index */
+  pointer-events: auto; /* Ensure it's not blocked */
+}
+
+.bottom-instruction.mobile {
+  font-size: 14px; /* Smaller font */
+  font-weight: normal;
+  bottom: 15px; /* Closer to bottom */
+  padding: 8px 16px; /* Smaller padding */
+  min-width: auto; /* Auto width */
+}

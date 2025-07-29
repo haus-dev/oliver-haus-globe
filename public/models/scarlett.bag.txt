@@ -1,0 +1,19 @@
+{
+  "title": "scarlett.bag",
+  "creative": {
+    "maker": "Oliver Haus",
+    "wallet": "0x6744C77955F889046BDD1f1A6e9dDc63C50b3532"
+  },
+  "description": "The scarlett.bag came about during a tutorial session at the Royal College of Art with Scarlett, Tristan, and Anna. After Tristan suggested that I start working with clients, I decided to focus on Scarlett as my first collaborator. I looked into Scarlett's public digital data and spoke with her directly about her preferences, which shaped the final design. Using perspex, 3D print, leather, and fabric, I combined digital tools like 3D modelling, laser cutting, and Zund cutting with hand assembly to create a personalised piece that connects both our interests and skills.",
+  "ai_tags": "collaborative, client-focused, personalised, digital-craft, hands-on",
+  "collaborators": ["Scarlett as a client"],
+  "location": {
+    "name": "Royal College of Art, Darwin Building",
+    "geo": {
+      "lat": 51.501304,
+      "lon": -0.17906
+    }
+  },
+  "materials": ["perspex", "3d print", "leather", "fabric"],
+  "methods": ["3d modelling", "laser cutting", "zund cutting", "hand assembly"]
+}

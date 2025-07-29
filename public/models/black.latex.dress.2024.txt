@@ -1,0 +1,27 @@
+{
+"title": "black.latex.dress",
+"creative": {
+"maker": "Oliver Haus",
+"wallet": "0x6744C77955F889046BDD1f1A6e9dDc63C50b3532"
+},
+"description": "In January 2024, I visited the National Museum in Oslo, where I encountered a work that deeply resonated with me. Inspired by this piece, I resolved to reinterpret it as a dress. The result is a garment crafted from black, white, and natural latex, utilising advanced 3D modelling and traditional pattern cutting, all meticulously hand-assembled.",
+"ai_tags": "inspired, craftsmanship, meticulous, contemporary, innovation",
+"collaborators": "none",
+"location": {
+"name": "London Metropolitan University",
+"geo": {
+"lat": 51.516191,
+"lon": -0.074085
+}
+},
+"materials": [
+"black latex",
+"white latex",
+"natural latex"
+],
+"methods": [
+"3d modelling",
+"pattern cutting",
+"hand assembly"
+]
+}

@@ -1,0 +1,19 @@
+{
+  "title": "latex.frill.dress",
+  "creative": {
+    "maker": "Oliver Haus",
+    "wallet": "0x6744C77955F889046BDD1f1A6e9dDc63C50b3532"
+  },
+  "description": "Commissioned by Edward Crutchley, this latex frill dress began as a set of 2D illustrations provided by the client. Oliver Haus translated these designs into a 3D digital model before precisely laser-cutting pieces of black, maroon, and white latex. Each component was then carefully hand assembled. The completed dress was unveiled at London Fashion Week in February 2024, showcased at Ironmongers' Hall, St Paul's, London.",
+  "ai_tags": "innovative, collaborative, precise, digital-craft, fashion-forward",
+  "collaborators": ["Edward Crutchley"],
+  "location": {
+    "name": "Ironmongers' Hall",
+    "geo": {
+      "lat": 51.51825,
+      "lon": -0.096429
+    }
+  },
+  "materials": ["black latex", "maroon latex", "white latex"],
+  "methods": ["3d modelling", "laser cutting", "hand assembly"]
+}
