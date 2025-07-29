@@ -46,18 +46,6 @@ body {
   color: #1a237e; /* Deep navy */
 }
 
-/* Mobile specific styling */
-.glass-container.mobile {
-  color: #ffeb3b !important; /* Bright yellow for mobile */
-  background: rgba(0, 0, 0, 0.7) !important; /* Darker background for better contrast */
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-  border: 2px solid #ffeb3b !important; /* Yellow border for visibility */
-}
-
-.glass-container.mobile .email-button {
-  color: #ffeb3b !important; /* Bright yellow for mobile */
-}
-
 .top-bar {
   position: fixed; /* Changed to fixed */
   top: 20px;
@@ -95,14 +83,6 @@ body {
   white-space: nowrap;
   z-index: 1000; /* Increased z-index */
   pointer-events: auto; /* Ensure it's not blocked */
-}
-
-.bottom-instruction.mobile {
-  font-size: 14px; /* Smaller font */
-  font-weight: normal;
-  bottom: 15px; /* Closer to bottom */
-  padding: 8px 16px; /* Smaller padding */
-  min-width: auto; /* Auto width */
 }
 
 /* Gold text styling for before interaction */
