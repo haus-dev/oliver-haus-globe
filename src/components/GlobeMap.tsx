@@ -76,6 +76,115 @@ const GlobeMap = () => {
               'line-color': '#b8d4bc',
               'line-width': 1
             }
+          },
+          {
+            id: 'waterway',
+            type: 'line',
+            source: 'openmaptiles',
+            'source-layer': 'waterway',
+            minzoom: 8,
+            paint: {
+              'line-color': '#4A90E2',
+              'line-width': [
+                'interpolate',
+                ['linear'],
+                ['zoom'],
+                8, 1,
+                12, 2,
+                16, 3
+              ],
+              'line-opacity': 0.7
+            }
+          },
+          {
+            id: 'roads-minor',
+            type: 'line',
+            source: 'openmaptiles',
+            'source-layer': 'transportation',
+            minzoom: 12,
+            filter: ['any', ['==', ['get', 'class'], 'minor'], ['==', ['get', 'class'], 'service'], ['==', ['get', 'class'], 'track']],
+            paint: {
+              'line-color': '#FFD700',
+              'line-width': [
+                'interpolate',
+                ['linear'],
+                ['zoom'],
+                12, 0.5,
+                14, 1,
+                16, 2,
+                18, 3
+              ],
+              'line-opacity': 0.8
+            }
+          },
+          {
+            id: 'roads-secondary',
+            type: 'line',
+            source: 'openmaptiles',
+            'source-layer': 'transportation',
+            minzoom: 10,
+            filter: ['any', ['==', ['get', 'class'], 'secondary'], ['==', ['get', 'class'], 'tertiary']],
+            paint: {
+              'line-color': '#FFC500',
+              'line-width': [
+                'interpolate',
+                ['linear'],
+                ['zoom'],
+                10, 1,
+                12, 2,
+                14, 3,
+                16, 4,
+                18, 6
+              ],
+              'line-opacity': 0.9
+            }
+          },
+          {
+            id: 'roads-primary',
+            type: 'line',
+            source: 'openmaptiles',
+            'source-layer': 'transportation',
+            minzoom: 8,
+            filter: ['any', ['==', ['get', 'class'], 'primary'], ['==', ['get', 'class'], 'trunk']],
+            paint: {
+              'line-color': '#FFB000',
+              'line-width': [
+                'interpolate',
+                ['linear'],
+                ['zoom'],
+                8, 1,
+                10, 2,
+                12, 3,
+                14, 4,
+                16, 6,
+                18, 8
+              ],
+              'line-opacity': 0.9
+            }
+          },
+          {
+            id: 'roads-motorway',
+            type: 'line',
+            source: 'openmaptiles',
+            'source-layer': 'transportation',
+            minzoom: 6,
+            filter: ['==', ['get', 'class'], 'motorway'],
+            paint: {
+              'line-color': '#FFA000',
+              'line-width': [
+                'interpolate',
+                ['linear'],
+                ['zoom'],
+                6, 1,
+                8, 2,
+                10, 3,
+                12, 4,
+                14, 6,
+                16, 8,
+                18, 10
+              ],
+              'line-opacity': 1
+            }
           }
         ]
       },
